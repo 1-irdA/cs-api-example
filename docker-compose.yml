@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  csapiexample:
+    container_name: csapiexample
+    image: csapiexample
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    depends_on:
+      - db
+    ports:
+      - 5000:5000
+  db:
+    container_name: db
+    build:
+      context: ./Db
+    ports:
+      - 1433:1433
