@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: db-container
-        image: db:latest
+        image: csapiexample_db:latest
         imagePullPolicy: Never
         resources:
           limits:
@@ -21,7 +21,10 @@ spec:
             cpu: "250m"
         env:
           - name: SA_PASSWORD
-            value: "Your_password123"
+            valueFrom:
+              secretKeyRef:
+                name: mssql-password
+                key: SA_PASSWORD
           - name: ACCEPT_EULA
             value: "Y"
         ports:
@@ -33,10 +36,10 @@ kind: Service
 metadata:
   name: db-service
 spec:
-  type: LoadBalancer
   selector:
     app: db-pod
   ports:
   - port: 1433
     targetPort: 1433
+  type: LoadBalancer
 
