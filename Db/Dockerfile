@@ -15,4 +15,4 @@ EXPOSE 1433
 
 USER mssql
 
-CMD /bin/bash ./entrypoint.sh
+CMD /bin/bash /app/entrypoint.sh
