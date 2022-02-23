@@ -11,9 +11,14 @@ services:
       - db
     ports:
       - 5000:5000
+    env_file:
+      - api.env
+      
   db:
     container_name: db
     build:
       context: ./Db
     ports:
       - 1433:1433
+    env_file:
+      - db.env
