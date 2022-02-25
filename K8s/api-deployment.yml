@@ -29,6 +29,18 @@ spec:
             value : Development
           - name: CONNECTION_STRING
             value : Server=db-service.default.svc.cluster.local;Database=Example;User Id=sa;Password=Your_password123;
+        livenessProbe:
+          httpGet:
+            path: /health/live
+            port: 5000
+          initialDelaySeconds: 10
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 5000
+          initialDelaySeconds: 90
+          periodSeconds: 30
 
 ---
 apiVersion: v1
