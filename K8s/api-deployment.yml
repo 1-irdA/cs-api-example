@@ -33,8 +33,8 @@ spec:
           httpGet:
             path: /health/live
             port: 5000
-          initialDelaySeconds: 10
-          periodSeconds: 10
+          initialDelaySeconds: 3
+          periodSeconds: 30
         readinessProbe:
           httpGet:
             path: /health/ready

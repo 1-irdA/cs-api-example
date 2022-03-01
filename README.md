@@ -6,11 +6,13 @@
 docker-compose build
 docker-compose up -d
 # wait a little during database initialization
-# http://localhost/swagger 
+# http://localhost:5000/swagger 
 ```
 
 ## Kubernetes
 
 ```sh
 kubectl apply -f .\K8s\api-deployment.yml,.\K8s\db-deployement.yml
+# wait a little during liveness and readyness probe
+# http://localhost:5000/swagger 
 ```
