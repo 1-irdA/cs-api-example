@@ -1,6 +1,6 @@
 namespace CsApiExample.Models
 {
-    public class CustomerDTO
+    public class CustomerSelectDTO
     {
         public long Id { get; set; }
         

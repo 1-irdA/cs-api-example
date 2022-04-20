@@ -16,13 +16,13 @@ namespace CsApiExample.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CustomerDTO>>> Get() =>
+        public async Task<ActionResult<IEnumerable<CustomerSelectDTO>>> Get() =>
             await this._context.Customers
                 .Select(x => CustomerToDTO(x))
                 .ToListAsync();
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<CustomerDTO>> Get(long id)
+        public async Task<ActionResult<CustomerSelectDTO>> Get(long id)
         {
             Customer? customer = await _context.Customers.FindAsync(id);
 
@@ -30,24 +30,18 @@ namespace CsApiExample.Controllers
             {
                 return NotFound();
             }
-
             return CustomerToDTO(customer);
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(long id, CustomerDTO customerDTO)
         {
-            if (id != customerDTO.Id)
-            {
-                return BadRequest();
-            }
-
             Customer? customer = await _context.Customers.FindAsync(id);
+
             if (customer == null)
             {
                 return NotFound();
             }
-
             customer.Email = customerDTO.Email;
             customer.Password = customerDTO.Password;
 
@@ -64,14 +58,14 @@ namespace CsApiExample.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<CustomerDTO>> Create(CustomerDTO customerDTO)
+        public async Task<ActionResult<CustomerSelectDTO>> Create(CustomerDTO customerDTO)
         {
             bool exists = await _context.Customers.AnyAsync(c => c.Email == customerDTO.Email);
+
             if (exists)
             {
                 return Conflict();
             }
-
             Customer customer = new Customer
             {
                 Email = customerDTO.Email,
@@ -107,8 +101,8 @@ namespace CsApiExample.Controllers
             return _context.Customers.Any(e => e.Id == id);
         }
 
-        private static CustomerDTO CustomerToDTO(Customer customer) =>
-            new CustomerDTO()
+        private static CustomerSelectDTO CustomerToDTO(Customer customer) =>
+            new CustomerSelectDTO()
             {
                 Id = customer.Id,
                 Email = customer.Email,
