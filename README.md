@@ -1,6 +1,6 @@
 # cs-api-example
 
-C# API with Docker, Docker Compose and K8s without persistent data
+C# API with Docker, Docker Compose and K8s with (persist branch) and without persistent data (main branch)
 
 ## Docker Compose
 
