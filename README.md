@@ -18,3 +18,7 @@ kubectl apply -f .\K8s\api-deployment.yml,.\K8s\db-deployement.yml
 # wait a little during liveness and readyness probe
 # http://localhost:5000/swagger 
 ```
+
+## Important
+
+**All .sh files must have LF end of line sequence.**
