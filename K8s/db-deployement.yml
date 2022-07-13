@@ -27,6 +27,13 @@ spec:
             value: Your_password123
         ports:
         - containerPort: 1433
+        volumeMounts:
+        - name: data
+          mountPath: /var/opt/mssql/data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: db-pv-claim
 
 ---
 apiVersion: v1

@@ -12,9 +12,3 @@ CREATE TABLE Customers (
 	email VARCHAR(255) NOT NULL,
 	password VARCHAR(255) NOT NULL
 );
-
-INSERT INTO Customers (email, password)
-VALUES 
-	('test@gmail.com', 'aaaaaaaaaaaaaaaaaaaaa'),
-	('test2@gmail.com', 'bbbbbbbbbbbbbbbbbbbb'),
-	('test3@gmail.com', 'ccccccccccccccccccccccc');

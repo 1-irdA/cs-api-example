@@ -1,6 +1,6 @@
 # cs-api-example
 
-C# API with Docker, Docker Compose and K8s [with persistent data](https://github.com/garrou/cs-api-example/tree/persist) and [without persistent data](https://github.com/garrou/cs-api-example/tree/main)
+C# API with Docker, Docker Compose and K8s with persistent data on K8s.     
 
 ## Docker Compose
 
@@ -14,9 +14,9 @@ docker-compose up -d
 ## Kubernetes
 
 ```sh
-kubectl apply -f .\K8s\api-deployment.yml,.\K8s\db-deployement.yml
+kubectl apply -f .\K8s\api-deployment.yml,.\K8s\db-deployement.yml,.\K8s\pv.yml
 # wait a little during liveness and readyness probe
-# http://localhost:5000/swagger 
+# http://localhost:5000/swagger
 ```
 
 ## Important
