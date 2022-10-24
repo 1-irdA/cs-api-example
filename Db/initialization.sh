@@ -4,7 +4,7 @@ sleep 90s
 
 if [ $? -eq 0 ]
 then
-    echo "create.sql completed"
+    echo "SUCCESS : create.sql completed"
 else
-    echo "cannot init database"
+    echo "ERROR : cannot init database"
 fi

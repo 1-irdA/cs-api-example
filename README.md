@@ -7,7 +7,6 @@ C# API with Docker, Docker Compose and K8s with persistent data on K8s.
 ```sh
 docker-compose build
 docker-compose up -d
-# wait a little during database initialization
 # http://localhost:5000/swagger 
 ```
 

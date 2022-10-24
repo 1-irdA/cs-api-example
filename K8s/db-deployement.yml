@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: db-container
-        image: cs-api-example_db:latest
+        image: cs-api-example-db:latest
         imagePullPolicy: Never
         resources:
           limits:
@@ -41,12 +41,10 @@ kind: Service
 metadata:
   name: db-service
 spec:
-  loadBalancerIP: 10.0.0.240
   selector:
     app: db-pod
   ports:
   - port: 1433
     targetPort: 1433
-  type: LoadBalancer
 
 
